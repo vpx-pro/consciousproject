@@ -1,0 +1,36 @@
+{
+  "name": "conscious-project-website",
+  "version": "1.0.0",
+  "description": "A modern, responsive website for The Conscious Project - a pioneering research and collaboration initiative dedicated to shaping the safe and ethical evolution of AGI and ASI.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 3000 -o",
+    "dev": "npx live-server --port=3000 --open=/index.html",
+    "build": "echo 'No build process needed - static website'",
+    "deploy": "echo 'Upload files to your hosting provider'"
+  },
+  "keywords": [
+    "conscious-ai",
+    "artificial-intelligence",
+    "agi",
+    "asi",
+    "ethical-ai",
+    "website",
+    "responsive",
+    "modern"
+  ],
+  "author": "The Conscious Project",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/conscious-project-website.git"
+  },
+  "homepage": "https://yourusername.github.io/conscious-project-website",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
