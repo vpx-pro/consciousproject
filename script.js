@@ -19,6 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             
+            // Close mobile menu if open
+            if (navMenu && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+            
             if (targetSection) {
                 const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
                 window.scrollTo({
@@ -174,6 +180,40 @@ document.addEventListener('keydown', function(e) {
             hamburger.classList.remove('active');
         }
     }
+});
+
+// Mobile-specific enhancements
+document.addEventListener('DOMContentLoaded', function() {
+    // Prevent zoom on input focus for mobile
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    }
+    
+    // Add touch feedback for mobile
+    const touchElements = document.querySelectorAll('.cta-button, .framework-card, .activity-card');
+    touchElements.forEach(element => {
+        element.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+        
+        element.addEventListener('touchend', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+    
+    // Handle window resize for mobile menu
+    window.addEventListener('resize', function() {
+        const navMenu = document.querySelector('.nav-menu');
+        const hamburger = document.querySelector('.hamburger');
+        
+        if (window.innerWidth > 768) {
+            if (navMenu && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        }
+    });
 });
 
 // Performance optimization: Debounce scroll events
